@@ -11,37 +11,31 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.tictactoe.mytest.data.Status
+import com.tictactoe.mytest.ui.game.GameScreen
 import com.tictactoe.mytest.ui.theme.MyTestTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContent {
             MyTestTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+                    GameScreen(
+                        listOf(
+                            Status.X,
+                            Status.X,
+                            Status.O,
+                            Status.X,
+                            Status.X,
+                            Status.O,
+                            Status.X,
+                            Status.X,
+                            Status.O
+                        ), onClick = viewModel
                     )
-                }
+
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MyTestTheme {
-        Greeting("Android")
-    }
-}
