@@ -1,5 +1,6 @@
 package com.tictactoe.mytest.ui.game
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tictactoe.mytest.data.GameViewState
@@ -20,15 +21,16 @@ class GameViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-    private val _uiState = MutableStateFlow(GameViewState(getEmptyList()))
+    private val _uiState = MutableStateFlow(GameViewState(getDefaultList()))
     val uiState: StateFlow<GameViewState> = _uiState.asStateFlow()
 
-    fun updateBoard(index: Int) {
+    fun updateBoard(index: Int, isFirstPlayer: Boolean) {
         viewModelScope.launch {
             gameUseCase(
                 GameUseCase.Params(
                     _uiState.value.list,
-                    index
+                    index,
+                    isFirstPlayer
                 )
             ).also { list ->
                 _uiState.value = _uiState.value.copy(
@@ -50,12 +52,14 @@ class GameViewModel @Inject constructor(
     }
 
     fun refresh() {
-        _uiState.value = GameViewState(getEmptyList())
+        _uiState.value = GameViewState(getDefaultList())
     }
 
-    fun getEmptyList() = ArrayList<Status>(9).apply {
-        repeat(9) { i ->
-            add(i, Status.BLANK)
-        }
-    }.toList()
+    fun getDefaultList(): List<Status> {
+        return ArrayList<Status>(9).apply {
+            repeat(9) { i ->
+                add(i, Status.BLANK)
+            }
+        }.toList()
+    }
 }

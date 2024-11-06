@@ -37,7 +37,7 @@ import com.tictactoe.mytest.ui.theme.transparent
 @Composable
 fun GameScreen(
     viewState: GameViewState,
-    onClick: (position: Int) -> Unit,
+    onClick: (position: Int, isFirstPlayer: Boolean) -> Unit,
     onRefresh: () -> Unit
 ) {
 
@@ -114,7 +114,7 @@ fun ShowAlert(
 @Composable
 fun CaseItem(
     status: Status,
-    onClick: (position: Int) -> Unit,
+    onClick: (position: Int, isFirstPlayer: Boolean) -> Unit,
     item: Int,
     isFirstPlayer: MutableState<Boolean>
 ) {
@@ -124,7 +124,7 @@ fun CaseItem(
             .height(50.dp)
             .clickable {
                 if (status == Status.BLANK) {
-                    onClick(item)
+                    onClick(item, isFirstPlayer.value)
                     isFirstPlayer.value = !isFirstPlayer.value
                 }
             },
@@ -167,7 +167,7 @@ private fun GameScreenPreview() {
             Status.X,
             Status.O
         )
-    ), onClick = { _ -> }, onRefresh = {})
+    ), onClick = { _, _ -> }, onRefresh = {})
 
 
 }

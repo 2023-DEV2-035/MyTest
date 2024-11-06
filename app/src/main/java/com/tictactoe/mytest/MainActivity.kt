@@ -27,13 +27,12 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = Black
-
                 ) {
                     val viewState =
-                        viewModel.uiState.collectAsState(GameViewState(viewModel.getEmptyList()))
+                        viewModel.uiState.collectAsState(GameViewState(viewModel.getDefaultList()))
                     GameScreen(
-                        viewState.value, onClick = { index ->
-                            viewModel.updateBoard(index)
+                        viewState.value, onClick = { index, isFirstPlayer ->
+                            viewModel.updateBoard(index, isFirstPlayer)
                         },
                         onRefresh = { viewModel.refresh() }
                     )
