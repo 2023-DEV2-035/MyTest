@@ -28,4 +28,11 @@ object MyTestFactory {
         set(3, Status.X)
         set(6, Status.X)
     }.toList()
+
+    fun getWinnerPlayer1Diagonally() = ArrayList<Status>(getDefaultBoard()).apply {
+        set(0, Status.X)
+        set(4, Status.X)
+        set(7, Status.X)
+    }.toList()
+
 }
