@@ -72,7 +72,6 @@ class GetWinnerUseCase @Inject constructor() {
         }
         return Winner.NONE
     }
-
     data class Params(val list: List<Status>)
 }
 

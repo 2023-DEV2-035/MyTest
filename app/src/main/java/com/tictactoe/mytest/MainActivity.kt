@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import com.tictactoe.mytest.data.GameViewState
 import com.tictactoe.mytest.ui.game.GameScreen
 import com.tictactoe.mytest.ui.game.GameViewModel
-import com.tictactoe.mytest.ui.theme.Black
 import com.tictactoe.mytest.ui.theme.MyTestTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -25,8 +24,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyTestTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = Black
+                    modifier = Modifier.fillMaxSize()
                 ) {
                     val viewState =
                         viewModel.uiState.collectAsState(GameViewState(viewModel.getDefaultList()))

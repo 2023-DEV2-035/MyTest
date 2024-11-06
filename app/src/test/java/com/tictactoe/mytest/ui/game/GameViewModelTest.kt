@@ -49,23 +49,13 @@ class GameViewModelTest {
     @Test
     fun `should return a list with O at the position 1`() {
         coEvery { gameUseCase(any()) } returns getGameBoard()
-        coEvery { getWinnerUseCase(any()) } returns Winner.NONE
+        coEvery { getWinnerUseCase(any()) } returns Winner.NOT_YET
         runTest {
             gameViewModel.updateBoard(1, false)
             gameViewModel.uiState.test {
-                assertEquals(awaitItem().list, getGameBoard())
-            }
-        }
-    }
-
-    @Test
-    fun `should return a list with X at the position 1`() {
-        coEvery { gameUseCase(any()) } returns getGameBoard()
-        coEvery { getWinnerUseCase(any()) } returns Winner.NONE
-        runTest {
-            gameViewModel.updateBoard(1, false)
-            gameViewModel.uiState.test {
-                assertEquals(awaitItem().list, getGameBoard())
+                val result =awaitItem()
+                assertEquals(result.list, getGameBoard())
+                assertEquals(result.winner, Winner.NOT_YET)
             }
         }
     }
