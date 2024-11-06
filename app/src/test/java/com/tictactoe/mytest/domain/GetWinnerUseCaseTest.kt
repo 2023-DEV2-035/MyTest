@@ -1,6 +1,7 @@
 package com.tictactoe.mytest.domain
 
 import com.tictactoe.mytest.MyTestFactory.getIsDrawList
+import com.tictactoe.mytest.MyTestFactory.getNotYetList
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Diagonally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Horizontally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayerVertically
@@ -52,6 +53,14 @@ class GetWinnerUseCaseTest {
         runBlocking {
             getWinnerUseCase(GetWinnerUseCase.Params(getIsDrawList())).also {
                 assertEquals(it, Winner.NONE)
+            }
+        }
+    }
+    @Test
+    fun `should return Not yet status`() {
+        runBlocking {
+            getWinnerUseCase(GetWinnerUseCase.Params(getNotYetList())).also {
+                assertEquals(it, Winner.NOT_YET)
             }
         }
     }

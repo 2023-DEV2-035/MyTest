@@ -46,4 +46,13 @@ object MyTestFactory {
         set(7, Status.X)
         set(8, Status.X)
     }.toList()
+
+    fun getNotYetList() = ArrayList<Status>(getDefaultBoard()).apply {
+        set(0, Status.X)
+        set(2, Status.X)
+        set(3, Status.X)
+        set(5, Status.O)
+        set(7, Status.X)
+        set(8, Status.X)
+    }.toList()
 }
