@@ -4,13 +4,16 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("kotlin-kapt")
     id("com.google.dagger.hilt.android")
+    id("io.gitlab.arturbosch.detekt") version "1.23.7"
 }
-
 buildscript {
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
+    }
+    dependencies {
+        classpath(libs.detekt.gradle.plugin)
     }
 }
 android {
@@ -68,4 +71,34 @@ dependencies {
     testImplementation(libs.mockk)
     testImplementation(libs.turbine)
     testImplementation(libs.kotlinx.coroutines.test)
+}
+detekt {
+    toolVersion = "1.23.7"
+    source.setFrom(rootDir)
+    parallel = true
+    config.setFrom("$rootDir/config/detekt.yml")
+    buildUponDefaultConfig = true
+    baseline = file("$rootDir/config/baseline.xml")
+    ignoreFailures = true
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+    exclude("**/special/package/internal/**")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.DetektCreateBaselineTask>().configureEach {
+    exclude("**/special/package/internal/**")
+}
+tasks.register<io.gitlab.arturbosch.detekt.Detekt>("myDetekt") {
+    description = "Runs a custom detekt build."
+    setSource(files(rootDir))
+    config.setFrom(files("$rootDir/config/detekt.yml"))
+    debug = true
+    reports {
+        html.outputLocation = file("build/reports/mydetekt.html")
+    }
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("resources/")
+    exclude("build/")
 }

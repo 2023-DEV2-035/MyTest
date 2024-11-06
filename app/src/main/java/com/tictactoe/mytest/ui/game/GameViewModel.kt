@@ -1,8 +1,8 @@
 package com.tictactoe.mytest.ui.game
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tictactoe.mytest.TicTacToeConstants.LIST_SIZE
 import com.tictactoe.mytest.data.GameViewState
 import com.tictactoe.mytest.data.Status
 import com.tictactoe.mytest.domain.GameUseCase
@@ -56,8 +56,8 @@ class GameViewModel @Inject constructor(
     }
 
     fun getDefaultList(): List<Status> {
-        return ArrayList<Status>(9).apply {
-            repeat(9) { i ->
+        return ArrayList<Status>(LIST_SIZE).apply {
+            repeat(LIST_SIZE) { i ->
                 add(i, Status.BLANK)
             }
         }.toList()

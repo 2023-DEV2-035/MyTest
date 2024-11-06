@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
+import com.tictactoe.mytest.TicTacToeConstants.ROW_SIZE
 import com.tictactoe.mytest.data.GameViewState
 import com.tictactoe.mytest.data.Status
 import com.tictactoe.mytest.data.Winner
@@ -33,14 +34,12 @@ import com.tictactoe.mytest.ui.theme.Pink80
 import com.tictactoe.mytest.ui.theme.Red
 import com.tictactoe.mytest.ui.theme.transparent
 
-
 @Composable
 fun GameScreen(
     viewState: GameViewState,
     onClick: (position: Int, isFirstPlayer: Boolean) -> Unit,
     onRefresh: () -> Unit
 ) {
-
     val isFirstPlayer = remember { mutableStateOf(true) }
     val shouldShowDialog = remember { mutableStateOf(false) }
 
@@ -54,7 +53,7 @@ fun GameScreen(
 
         LazyVerticalGrid(
             modifier = Modifier.padding(16.dp),
-            columns = GridCells.Fixed(3),
+            columns = GridCells.Fixed(ROW_SIZE),
             verticalArrangement = Arrangement.spacedBy(4.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
@@ -168,6 +167,4 @@ private fun GameScreenPreview() {
             Status.O
         )
     ), onClick = { _, _ -> }, onRefresh = {})
-
-
 }

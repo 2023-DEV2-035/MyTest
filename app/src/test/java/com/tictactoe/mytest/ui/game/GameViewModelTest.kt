@@ -2,8 +2,8 @@ package com.tictactoe.mytest.ui.game
 
 import app.cash.turbine.test
 import com.tictactoe.mytest.MainDispatcherRule
-import com.tictactoe.mytest.MyTestFactory.Factory.getDefaultBoard
-import com.tictactoe.mytest.MyTestFactory.Factory.getGameBoard
+import com.tictactoe.mytest.MyTestFactory.getDefaultBoard
+import com.tictactoe.mytest.MyTestFactory.getGameBoard
 import com.tictactoe.mytest.data.Winner
 import com.tictactoe.mytest.domain.GameUseCase
 import com.tictactoe.mytest.domain.GetWinnerUseCase
@@ -16,7 +16,6 @@ import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-
 
 class GameViewModelTest {
 
