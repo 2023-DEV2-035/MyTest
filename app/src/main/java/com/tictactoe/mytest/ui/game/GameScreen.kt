@@ -52,7 +52,7 @@ fun GameScreen(
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
 
         LazyVerticalGrid(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(top = 32.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
             columns = GridCells.Fixed(ROW_SIZE),
             verticalArrangement = Arrangement.spacedBy(4.dp),
             horizontalArrangement = Arrangement.spacedBy(4.dp)
