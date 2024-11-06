@@ -22,7 +22,7 @@ class GetWinnerUseCaseTest {
     }
 
     @Test
-    fun `should return Player1 is winner`() {
+    fun `should return Player1 is winner Horizontally`() {
         runBlocking {
             getWinnerUseCase(GetWinnerUseCase.Params(getWinnerPlayer1())).also {
                 assertEquals(it, Winner.PLAYER1)

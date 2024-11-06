@@ -6,7 +6,18 @@ import javax.inject.Inject
 
 class GetWinnerUseCase @Inject constructor() {
     suspend operator fun invoke(params: Params): Winner {
-       return Winner.NOT_YET
+        for (i in 0 until 3) {
+            when {
+                params.list[i * 3] == Status.O && params.list[(i * 3) + 1] == Status.O && params.list[(i * 3) + 2] == Status.O -> {
+                    return Winner.PLAYER2
+                }
+
+                params.list[i * 3] == Status.X && params.list[(i * 3) + 1] == Status.X && params.list[(i * 3) + 2] == Status.X -> {
+                    return Winner.PLAYER1
+                }
+            }
+        }
+        return Winner.NONE
     }
 
     data class Params(val list: List<Status>)
