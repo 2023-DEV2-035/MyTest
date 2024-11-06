@@ -35,4 +35,15 @@ object MyTestFactory {
         set(8, Status.X)
     }.toList()
 
+    fun getIsDrawList() = ArrayList<Status>(getDefaultBoard()).apply {
+        set(0, Status.X)
+        set(1, Status.O)
+        set(2, Status.X)
+        set(3, Status.X)
+        set(4, Status.O)
+        set(5, Status.O)
+        set(6, Status.O)
+        set(7, Status.X)
+        set(8, Status.X)
+    }.toList()
 }

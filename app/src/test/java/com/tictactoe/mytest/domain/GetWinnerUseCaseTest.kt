@@ -1,5 +1,6 @@
 package com.tictactoe.mytest.domain
 
+import com.tictactoe.mytest.MyTestFactory.getIsDrawList
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Diagonally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Horizontally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayerVertically
@@ -43,6 +44,14 @@ class GetWinnerUseCaseTest {
         runBlocking {
             getWinnerUseCase(GetWinnerUseCase.Params(getWinnerPlayer1Diagonally())).also {
                 assertEquals(it, Winner.PLAYER1)
+            }
+        }
+    }
+    @Test
+    fun `should return is Draw`() {
+        runBlocking {
+            getWinnerUseCase(GetWinnerUseCase.Params(getIsDrawList())).also {
+                assertEquals(it, Winner.NONE)
             }
         }
     }
