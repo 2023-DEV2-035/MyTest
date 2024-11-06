@@ -12,7 +12,6 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-
 class GetWinnerUseCaseTest {
 
     private lateinit var getWinnerUseCase: GetWinnerUseCase
