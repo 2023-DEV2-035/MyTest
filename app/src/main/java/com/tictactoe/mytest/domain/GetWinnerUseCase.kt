@@ -19,7 +19,20 @@ class GetWinnerUseCase @Inject constructor() {
                 }
             }
         }
-
+        when {
+            params.list[0] == Status.X && params.list[4] == Status.X && params.list[8] == Status.X -> {
+                return Winner.PLAYER1
+            }
+            params.list[2] == Status.X && params.list[4] == Status.X && params.list[6] == Status.X -> {
+                return Winner.PLAYER1
+            }
+            params.list[0] == Status.O && params.list[4] == Status.O && params.list[8] == Status.O -> {
+                return Winner.PLAYER2
+            }
+            params.list[2] == Status.O && params.list[4] == Status.O && params.list[6] == Status.O -> {
+                return Winner.PLAYER2
+            }
+        }
         return Winner.NONE
     }
 
