@@ -32,7 +32,7 @@ object MyTestFactory {
     fun getWinnerPlayer1Diagonally() = ArrayList<Status>(getDefaultBoard()).apply {
         set(0, Status.X)
         set(4, Status.X)
-        set(7, Status.X)
+        set(8, Status.X)
     }.toList()
 
 }
