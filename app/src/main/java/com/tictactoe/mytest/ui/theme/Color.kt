@@ -12,3 +12,4 @@ val Pink40 = Color(0xFF7D5260)
 val Blue = Color.Blue
 val Red = Color.Red
 val transparent = Color.Transparent
+val Black = Color.Black

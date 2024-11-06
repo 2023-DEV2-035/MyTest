@@ -1,13 +1,13 @@
 package com.tictactoe.mytest.domain
 
+import com.tictactoe.mytest.data.Status
+import javax.inject.Inject
 
-class GameUseCase {
 
-    suspend operator fun invoke(params: Params): Boolean {
+class GameUseCase @Inject constructor() {
+    suspend operator fun invoke(params: Params): List<Status> {
 
-        return false
-
+        return emptyList()
     }
-
-    data class Params(val position: Int)
+    data class Params(val list: List<Status>, val position: Int)
 }

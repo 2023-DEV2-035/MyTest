@@ -1,7 +1,8 @@
 package com.tictactoe.mytest.data
 
-enum class Winer {
+enum class Winner {
     PLAYER1,
     PLAYER2,
-    NONE
+    NONE,
+    NOT_YET
 }
