@@ -5,7 +5,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -52,7 +51,6 @@ fun GameScreen(
         ShowAlert(shouldShowDialog = shouldShowDialog, viewState.winner, isFirstPlayer, onRefresh)
     }
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-
         LazyVerticalGrid(
             modifier = Modifier.padding(top = 48.dp, start = 16.dp, end = 16.dp, bottom = 16.dp),
             columns = GridCells.Fixed(ROW_SIZE),
@@ -76,7 +74,9 @@ fun GameScreen(
 
 @Composable
 fun ShowAlert(
-    shouldShowDialog: MutableState<Boolean>, winner: Winner, isFirstPlayer: MutableState<Boolean>,
+    shouldShowDialog: MutableState<Boolean>,
+    winner: Winner,
+    isFirstPlayer: MutableState<Boolean>,
     onRefresh: () -> Unit
 ) {
     val properties = DialogProperties(
@@ -104,14 +104,12 @@ fun ShowAlert(
                     isFirstPlayer.value = true
                     onRefresh()
                     shouldShowDialog.value = false
-                }
-            ) {
+                }) {
                 Text(
                     text = stringResource(R.string.start_new_match),
                 )
             }
-        }
-    )
+        })
 }
 
 @Composable
@@ -122,7 +120,7 @@ fun CaseItem(
     isFirstPlayer: MutableState<Boolean>
 ) {
     Row(
-        Modifier
+        modifier = Modifier
             .background(Gray)
             .height(50.dp)
             .clickable {
@@ -133,15 +131,13 @@ fun CaseItem(
             },
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.Center,
-    )
-    {
+    ) {
         Text(
             text = when (status) {
                 Status.BLANK -> ""
                 Status.X -> stringResource(R.string.x_play)
                 Status.O -> stringResource(R.string.o_play)
             },
-            modifier = Modifier.defaultMinSize(),
             fontSize = 30.sp,
             color = when (status) {
                 Status.BLANK -> Transparent
@@ -151,7 +147,6 @@ fun CaseItem(
             fontWeight = FontWeight.Bold
         )
     }
-
 }
 
 @Preview
@@ -170,5 +165,7 @@ private fun GameScreenPreview() {
             Status.X,
             Status.O
         )
-    ), onClick = { _, _ -> }, onRefresh = {})
+    ),
+        onClick = { _, _ -> },
+        onRefresh = {})
 }

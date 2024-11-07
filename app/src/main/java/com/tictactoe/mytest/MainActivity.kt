@@ -29,7 +29,8 @@ class MainActivity : ComponentActivity() {
                     val viewState =
                         viewModel.uiState.collectAsState(GameViewState(viewModel.getDefaultList()))
                     GameScreen(
-                        viewState.value, onClick = { index, isFirstPlayer ->
+                        viewState.value,
+                        onClick = { index, isFirstPlayer ->
                             viewModel.updateBoard(index, isFirstPlayer)
                         },
                         onRefresh = { viewModel.refresh() }

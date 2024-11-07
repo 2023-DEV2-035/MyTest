@@ -30,6 +30,7 @@ class GetWinnerUseCaseTest {
             }
         }
     }
+
     @Test
     fun `should return Player1 is winner vertically`() {
         runBlocking {
@@ -47,6 +48,7 @@ class GetWinnerUseCaseTest {
             }
         }
     }
+
     @Test
     fun `should return is Draw`() {
         runBlocking {
@@ -55,6 +57,7 @@ class GetWinnerUseCaseTest {
             }
         }
     }
+
     @Test
     fun `should return Not yet status`() {
         runBlocking {

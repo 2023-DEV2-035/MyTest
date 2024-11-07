@@ -6,7 +6,11 @@ import javax.inject.Inject
 class GameUseCase @Inject constructor() {
     operator fun invoke(params: Params): List<Status> {
         val list = ArrayList(params.list)
-        list[params.position] = if (params.isFirstPlayer) Status.X else Status.O
+        list[params.position] = if (params.isFirstPlayer) {
+            Status.X
+        } else {
+            Status.O
+        }
         return list.toList()
     }
 
