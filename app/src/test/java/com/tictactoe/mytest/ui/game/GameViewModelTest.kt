@@ -4,7 +4,7 @@ import app.cash.turbine.test
 import com.tictactoe.mytest.MainDispatcherRule
 import com.tictactoe.mytest.MyTestFactory.getDefaultBoard
 import com.tictactoe.mytest.MyTestFactory.getGameBoard
-import com.tictactoe.mytest.data.Winner
+import com.tictactoe.mytest.TicTacToeConstants.Winner
 import com.tictactoe.mytest.domain.GameUseCase
 import com.tictactoe.mytest.domain.GetWinnerUseCase
 import io.mockk.MockKAnnotations

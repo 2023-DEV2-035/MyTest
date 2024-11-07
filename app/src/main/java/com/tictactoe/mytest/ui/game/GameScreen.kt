@@ -28,9 +28,9 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.DialogProperties
 import com.tictactoe.mytest.R
 import com.tictactoe.mytest.TicTacToeConstants.ROW_SIZE
-import com.tictactoe.mytest.data.GameViewState
-import com.tictactoe.mytest.data.Status
-import com.tictactoe.mytest.data.Winner
+import com.tictactoe.mytest.model.GameViewState
+import com.tictactoe.mytest.TicTacToeConstants.Winner
+import com.tictactoe.mytest.TicTacToeConstants.Status
 import com.tictactoe.mytest.ui.theme.Blue
 import com.tictactoe.mytest.ui.theme.Gray
 import com.tictactoe.mytest.ui.theme.Red

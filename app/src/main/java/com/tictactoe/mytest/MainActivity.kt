@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
-import com.tictactoe.mytest.data.GameViewState
+import com.tictactoe.mytest.model.GameViewState
 import com.tictactoe.mytest.ui.game.GameScreen
 import com.tictactoe.mytest.ui.game.GameViewModel
 import com.tictactoe.mytest.ui.theme.MyTestTheme

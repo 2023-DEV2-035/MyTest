@@ -1,7 +1,7 @@
 package com.tictactoe.mytest.domain
 
 import com.tictactoe.mytest.MyTestFactory.getDefaultBoard
-import com.tictactoe.mytest.data.Status
+import com.tictactoe.mytest.TicTacToeConstants.Status
 import io.mockk.MockKAnnotations
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.runBlocking

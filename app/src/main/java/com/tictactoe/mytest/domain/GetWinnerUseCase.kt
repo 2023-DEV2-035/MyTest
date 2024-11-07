@@ -1,5 +1,7 @@
 package com.tictactoe.mytest.domain
 
+import com.tictactoe.mytest.TicTacToeConstants.Winner
+import com.tictactoe.mytest.TicTacToeConstants.Status
 import com.tictactoe.mytest.TicTacToeConstants.EIGHT
 import com.tictactoe.mytest.TicTacToeConstants.FOUR
 import com.tictactoe.mytest.TicTacToeConstants.ONE
@@ -7,12 +9,10 @@ import com.tictactoe.mytest.TicTacToeConstants.SIX
 import com.tictactoe.mytest.TicTacToeConstants.THREE
 import com.tictactoe.mytest.TicTacToeConstants.TWO
 import com.tictactoe.mytest.TicTacToeConstants.ZERO
-import com.tictactoe.mytest.data.Status
-import com.tictactoe.mytest.data.Winner
 import javax.inject.Inject
 
 class GetWinnerUseCase @Inject constructor() {
-    suspend operator fun invoke(params: Params): Winner {
+    operator fun invoke(params: Params): Winner {
         val winners = listOf(
             checkWinnerHorizontallyAndVertically(params),
             checkWinnerDiagonally(params)
@@ -72,6 +72,7 @@ class GetWinnerUseCase @Inject constructor() {
         }
         return Winner.NONE
     }
+
     data class Params(val list: List<Status>)
 }
 

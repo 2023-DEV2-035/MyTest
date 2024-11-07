@@ -5,7 +5,7 @@ import com.tictactoe.mytest.MyTestFactory.getNotYetList
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Diagonally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayer1Horizontally
 import com.tictactoe.mytest.MyTestFactory.getWinnerPlayerVertically
-import com.tictactoe.mytest.data.Winner
+import com.tictactoe.mytest.TicTacToeConstants.Winner
 import io.mockk.MockKAnnotations
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.runBlocking

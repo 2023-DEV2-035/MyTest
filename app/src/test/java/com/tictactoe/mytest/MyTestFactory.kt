@@ -1,6 +1,6 @@
 package com.tictactoe.mytest
 
-import com.tictactoe.mytest.data.Status
+import com.tictactoe.mytest.TicTacToeConstants.Status
 
 object MyTestFactory {
 

@@ -12,4 +12,16 @@ object TicTacToeConstants {
     const val SIX = 6
     const val EIGHT = 8
 
+    enum class Status {
+        BLANK,
+        X,
+        O
+    }
+
+    enum class Winner {
+        PLAYER1,
+        PLAYER2,
+        NONE,
+        NOT_YET
+    }
 }

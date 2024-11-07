@@ -3,8 +3,8 @@ package com.tictactoe.mytest.ui.game
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.tictactoe.mytest.TicTacToeConstants.LIST_SIZE
-import com.tictactoe.mytest.data.GameViewState
-import com.tictactoe.mytest.data.Status
+import com.tictactoe.mytest.model.GameViewState
+import com.tictactoe.mytest.TicTacToeConstants.Status
 import com.tictactoe.mytest.domain.GameUseCase
 import com.tictactoe.mytest.domain.GetWinnerUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel

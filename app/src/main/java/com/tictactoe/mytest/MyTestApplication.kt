@@ -1,4 +1,4 @@
-package com.tictactoe.mytest.runtime
+package com.tictactoe.mytest
 
 import android.app.Application
 import android.content.Context
