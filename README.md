@@ -9,7 +9,7 @@
 
 ## Screenshots
 
-<img src="screenshots/Screenshot_20241107_151437.png"/>
-<img src="screenshots/Screenshot_20241107_151507.png"/>
-<img src="screenshots/Screenshot_20241107_151539.png"/>
+<img src="screenshots/Screenshot_20241107_151437.png" height="600" width="270" />
+<img src="screenshots/Screenshot_20241107_151507.png" height="600" width="270" />
+<img src="screenshots/Screenshot_20241107_151539.png" height="600" width="270" />
 
