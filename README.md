@@ -6,3 +6,10 @@
 * The kotlin version is 2.0.21.
 
 * I created a Gradle task called **myDetekt** to launch Detekt(Static code analysis for Kotlin).
+
+## Screenshots
+
+<img src="screenshots/Screenshot_20241107_151437.png"/>
+<img src="screenshots/Screenshot_20241107_151507.png"/>
+<img src="screenshots/Screenshot_20241107_151539.png"/>
+
